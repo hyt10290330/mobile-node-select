@@ -162,6 +162,7 @@ export default {
   methods: {
     onTransitionEnd() {
       setTimeout(() => {
+        // eslint-disable-next-line
         const calculate = this.$refs.calculate
         this.selectedContainerMaxHeight = calculate.clientHeight
         this.departmentContainerMaxHeight = calculate.clientWidth
