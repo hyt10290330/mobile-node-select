@@ -146,7 +146,6 @@ export default {
     },
   },
   created() {
-    // 数据转换层
     this.TData = {}
     this.selectedContainerMaxHeight = 0
     this.departmentContainerMaxHeight = 0
@@ -315,6 +314,8 @@ export default {
     },
     _setSelectedContainerHeight() {
       return new Promise(resolve => {
+        // eslint-disable-next-line
+        console.log('看看这里发生了什么', this.selectedContainerMaxHeight)
         let height = 0
         const selectedScroll = this.$refs.selectedScroll
         const selectedScrollEl = selectedScroll.$el
