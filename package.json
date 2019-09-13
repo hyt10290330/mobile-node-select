@@ -1,7 +1,14 @@
 {
   "name": "mobile-node-select",
   "version": "0.1.0",
+  "description": "移动端部门(节点树)选择组件",
+  "main": "./lib/nodeselect.common.js",
   "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:hyt10290330/mobile-node-select.git"
+  },
+  "author": "hythandsome",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
