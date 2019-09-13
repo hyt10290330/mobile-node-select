@@ -1,59 +1,106 @@
-## watermark
+## mobile-node-select
 
-A canvas-based watermark component, including watermark names and company logos, etc.
+Mobile department (node tree) selection component.
 
 > **Note:** Examples are as follows:
 
 ```html
-<div class="watermark-container" id="watermarkContainer"></div>
+<node-select
+  :data="data"
+  :isShow="isShow"
+  @close="close"
+  @selectDepartment="handleSelectDepartment"
+  textField="name"
+></node-select>
 ```
 
 ```js
-const wm = new watermark({
-  el: '#watermarkContainer',
-  imprintText: '黄永泰',
-  imprintAngle: -Math.PI / 12,
-  logoPattern: 'image',
-  logoImgSrc:
-    'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1568368824188&di=a5bc896a1ccd00c6049c8e4b0392ca36&imgtype=0&src=http%3A%2F%2Fi.gbc.tw%2Fgb_img%2F0%2F002%2F194%2F2194310m.jpg',
-  logoText: 'dddd',
-  isShowLogo: true,
-})
+{
+  data() {
+    return {
+      isShow: false,
+      data: [
+        {
+          id: 1,
+          instituteId: 598,
+          userId: 1,
+          name: '中国',
+          parentId: 0,
+          nodeSize: 2,
+        },
+        {
+          id: 16,
+          instituteId: 598,
+          userId: 1,
+          name: '日本',
+          parentId: 0,
+          nodeSize: 3,
+        },
+        {
+          id: 17,
+          instituteId: 598,
+          userId: 1,
+          name: '11',
+          parentId: 1,
+          nodeSize: 0,
+        },
+        {
+          id: 19,
+          instituteId: 598,
+          userId: 1,
+          name: '111',
+          parentId: 1,
+          nodeSize: 0,
+        },
+        {
+          id: 18,
+          instituteId: 598,
+          userId: 1,
+          name: '七龙珠',
+          parentId: 16,
+          nodeSize: 0,
+        },
+        {
+          id: 20,
+          instituteId: 598,
+          userId: 1,
+          name: '海贼王',
+          parentId: 16,
+          nodeSize: 0,
+        },
+        {
+          id: 50,
+          instituteId: 598,
+          userId: 1,
+          name: '火影忍者',
+          parentId: 16,
+          nodeSize: 0,
+        },
+      ],
+      title: '',
+    }
+  },
+  methods: {
+    close() {
+      this.isShow = false
+    },
+    open() {
+      this.isShow = true
+    },
+    handleClick() {
+      this.open()
+    },
+    handleSelectDepartment(ancestors, currentNode) {
+      this.close()
+      const nodes = [...ancestors, currentNode]
+      this.title = nodes.map(node => `${node.level}Level ${node.name}`).join('/')
+    },
+  },
+}
 ```
 
 ## Installation
 
-`npm install @hythandsome/canvaswatermark`
+`npm install mobile-node-select`
 
 ## API Documentation
-
-```
-export enum LogoPattern {
-  Text = 'text',
-  Image = 'image',
-}
-
-export interface Option {
-  el: string | Element
-  imprintText: string
-  imprintAngle: number
-  logoPattern: LogoPattern
-  logoText: string
-  logoImgSrc: string
-  isShowLogo: Boolean
-  isShowImprint: Boolean
-}
-
-
-```
-
-| field         | Explain                                                                                    | Type           | Default value    | Optional value                       |
-| ------------- | ------------------------------------------------------------------------------------------ | -------------- | ---------------- | ------------------------------------ |
-| el            | Container element                                                                          | string/Element | ''               | none                                 |
-| imprintText   | Watermark text                                                                             | string         | ''               | none                                 |
-| imprintAngle  | Tilt angle of watermarking distance in horizontal direction                                | number         | -Math.PI / 12    | none                                 |
-| logoPattern   | Rendering logo adoption mode                                                               | LogoPattern    | LogoPattern.Text | LogoPattern.Text / LogoPattern.Image |
-| logoText      | When logoPatternshi is a text mode, logo will render according to the content of the text. | string         | ''               | none                                 |
-| logoImgSrc    | When logoPatternshi is a image mode, logo will render according to Picture URL             | string         | ''               | none                                 |
-| isShowLogo    | Whether to display logo                                                                    | Boolean        | true             | none                                 |
-| isShowImprint | Whether to display imprint                                                                 | Boolean        | true             | none                                 |
