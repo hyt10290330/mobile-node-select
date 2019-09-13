@@ -1,6 +1,6 @@
 {
   "name": "mobile-node-select",
-  "version": "2.0.0",
+  "version": "2.2.0",
   "description": "基于vue的移动端部门(节点树)选择组件/The vue-based mobile department (node tree) selection component.",
   "main": "./lib/nodeselect.common.js",
   "private": false,

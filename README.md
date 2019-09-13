@@ -117,3 +117,9 @@ The vue-based mobile department (node tree) selection component.
 | ---------------------- | ------------------------------------------------------------------- | ----------------------------------------- |
 | close                  | Click on the event that is triggered when the popup layer is closed | none                                      |
 | handleSelectDepartment | Events fired when the lowest level component is selected            | ancestors: Array<Node>, currentNode: Node |
+
+## Component Images
+
+![Image text](https://github.com/hyt10290330/mobile-node-select/blob/master/images/1.png)
+![Image text](https://github.com/hyt10290330/mobile-node-select/blob/master/images/2.png)
+![Image text](https://github.com/hyt10290330/mobile-node-select/blob/master/images/3.png)
