@@ -1,6 +1,6 @@
 ## mobile-node-select
 
-Mobile department (node tree) selection component.
+The vue-based mobile department (node tree) selection component.
 
 > **Note:** Examples are as follows:
 
@@ -103,4 +103,17 @@ Mobile department (node tree) selection component.
 
 `npm install mobile-node-select`
 
-## API Documentation
+## Props Documentation
+
+| field     | Explain                                                 | Type    | Default value | Optional value |
+| --------- | ------------------------------------------------------- | ------- | ------------- | -------------- |
+| data      | The data source that the driver component is running on | Array   | []            | none           |
+| isShow    | Whether to display the popup layer dropdown component   | Boolean | false         | none           |
+| textField | The node name field to display in the array             | string  | 'title'       | none           |
+
+## Events Documentation
+
+| field                  | Explain                                                             | Parameters callback                       |
+| ---------------------- | ------------------------------------------------------------------- | ----------------------------------------- |
+| close                  | Click on the event that is triggered when the popup layer is closed | none                                      |
+| handleSelectDepartment | Events fired when the lowest level component is selected            | ancestors: Array<Node>, currentNode: Node |
